@@ -32,10 +32,4 @@ COPY requirements.txt ./PocketPredict/* /pockets
     
 RUN pip install -r requirements.txt
 
-# Download classification model from the provided OneDrive
-ADD https://iiitaphyd-my.sharepoint.com/personal/rishal_aggarwal_alumni_iiit_ac_in/_layouts/15/download.aspx?UniqueId=c9384107-f300-4b68-9613-dc7213336f64 /pockets/first_model_fold1_best_test_auc_85001.pth.tar
-
-# Download segmentation model from the provided OneDrive
-ADD https://iiitaphyd-my.sharepoint.com/personal/rishal_aggarwal_alumni_iiit_ac_in/_layouts/15/download.aspx?UniqueId=52b48f05-0219-46d9-99e8-edc6635cc103 /pockets/seg0_best_test_IOU_91.pth.tar
-
 WORKDIR /home

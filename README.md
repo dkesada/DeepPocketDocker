@@ -5,12 +5,15 @@ DeepPocket is a 3D convolutional neural network framework for ligand binding sit
 This directory offers a Dockerized implementation of DeepPocket’s pocket prediction and ranking features. There are some differences with the original dockerized version of DeepPocket:
 
 * It removes some of the intricacy of the original "container-inside-container" prediction and visualization. This version can be called to perform predictions and get the resulting files in a single container obtained from the provided Dockerfile.
-* It can be installed with a single command by automatically downloading the necessary models from OneDrive with ADDs in the Dockerfile.
 * It has no interface whatsoever because it is intended to be used with subprocess calls built in Python. If you want to find the pockets in a protein .pdb file and rank them, you just build the appropriate call to predict.py inside the container.
+
+Please, note that this Docker image is quite heavy: up to 10.33GB. There's not much I can do about that, the original image was already quite big because it uses a Python:3.10 base image, it needs to apt-get update && apt-get install a bunch of stuff and it needs to install torch and neural network dependencies.
 
 ## Building the image
 
-Building the image is simplified into a single call to docker build:
+Before building the image, we need to get the classification and the segmentation models from [here](https://iiitaphyd-my.sharepoint.com/personal/rishal_aggarwal_alumni_iiit_ac_in/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frishal%5Faggarwal%5Falumni%5Fiiit%5Fac%5Fin%2FDocuments%2Fpbsp%2FDeepPocket&ga=1) and copy them into the PocketPredict folder. I tried doing that automatically but sharepoint and onedrive are a pain to wget from them cause they require you to get a cookie beforehand or they throw you a 403 error. It's just simpler to download the two files and copy them into the folder.
+
+Afterwards, we can simply build the image with a call to docker build:
 
 ```console
 docker build -t deeppocket .
