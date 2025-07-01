@@ -11,7 +11,10 @@ def singular(protein_name, dir_name, vmd_usage):
 
     container_name = ""
     
+    # Innecesario completamente, solo cambia el nombre de la proteina en el comando
     subprocess.run(['python', 'update_protein.py', f'{protein_file}'], check=True)
+    # Innecesario, crea un contenedor dentro del propio contenedor, tal vez para
+    # visualizacion o algo. Tirar como hasta ahora
     subprocess.run(['docker', 'build', '-t', 'front', '.'], check=True)
 
     try:
