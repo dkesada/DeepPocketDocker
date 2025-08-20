@@ -16,12 +16,12 @@ RUN apt-get update && apt-get install -y \
     libxi6 \
     libgstreamer1.0-0 \
     libgstreamer-plugins-base1.0-0 \
+    clang \
     && rm -rf /var/lib/apt/lists/*
-
 
 RUN git clone https://github.com/Discngine/fpocket.git && \
     cd fpocket && \
-    make && \
+    make CC=clang && \
     make install && \
     cd .. && \
     rm -rf fpocket
