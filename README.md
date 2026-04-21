@@ -11,7 +11,7 @@ Please, note that this Docker image is quite heavy: up to 10.33GB. There's not m
 
 ## Building the image
 
-Before building the image, we need to get the classification and the segmentation models from [here](https://iiitaphyd-my.sharepoint.com/personal/rishal_aggarwal_alumni_iiit_ac_in/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frishal%5Faggarwal%5Falumni%5Fiiit%5Fac%5Fin%2FDocuments%2Fpbsp%2FDeepPocket&ga=1) and copy them into the PocketPredict folder. I tried doing that automatically but sharepoint and onedrive are a pain to wget from them cause they require you to get a cookie beforehand or they throw you a 403 error. It's just simpler to download the two files and copy them into the folder.
+Before building the image, we need to get the classification and the segmentation models from [here](https://pitt-my.sharepoint.com/:u:/g/personal/ria43_pitt_edu/EUihPbBXe8VNtHhHNBuaNk8B3nNVtTZQ5c2ofxnmSoHLxw?e=I51V5Y) and copy them into the PocketPredict folder. The two files we are interested n are **./segmentation_models/seg0_best_test_IOU_91.pth.tar** and **./classification_models/first_model_fold1_best_test_auc_85001.pth.tar**. I tried doing this process automatically but sharepoint and onedrive are a pain to wget from them cause they require you to get a cookie beforehand or they throw you a 403 error. It's just simpler to download the two files and copy them into the folder.
 
 Afterwards, we can simply build the image with a call to docker build:
 
